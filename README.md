@@ -15,14 +15,14 @@ Add the key to the .env file as RAPIDAPI_KEY.
 Clone the Repository:
 
 ```bash
-git clone https://github.com/username/repository-name.git
-cd repository-name
+git clone https://github.com/prabal-007/Bhive-mutual-fund-app
+cd bhive-mutual-fund-app/backend/
 ```
 
 Install Dependencies:
 
 ```bash
-pip install foobar
+npm install
 ```
 
 Set Up .env File:
@@ -48,8 +48,8 @@ npm run dev
 Clone the Repository:
 
 ```bash
-git clone https://github.com/username/repository-name.git
-cd repository-name
+git clone https://github.com/prabal-007/Bhive-mutual-fund-app
+cd bhive-mutual-fund-app/backend/
 ```
 
 Set Up .env File:
