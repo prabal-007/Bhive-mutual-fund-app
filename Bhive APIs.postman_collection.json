@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "1d40491e-0f91-4718-b247-2cdb2618df36",
+		"name": "Bhive APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31842309",
+		"_collection_link": "https://restless-astronaut-507412.postman.co/workspace/Sigma-Web-Development~9e68f3d3-eb2f-4adb-94da-81a2b7f1f718/collection/31842309-1d40491e-0f91-4718-b247-2cdb2618df36?action=share&source=collection_link&creator=31842309"
+	},
+	"item": [
+		{
+			"name": "User Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"stark@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"stark@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fund family",
+			"item": [
+				{
+					"name": "Get all Fund Family",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-key",
+								"value": "{{rapidapi_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MzQ4MDg3MjgsImV4cCI6MTczNDgxMjMyOH0.9YQy8wGLe3CnOAjZC12VzFJwpFxXQF6_6cXgkHPEPTs",
+								"type": "text"
+							},
+							{
+								"key": "x-rapidapi-host",
+								"value": "latest-mutual-fund-nav.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funds/families",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funds",
+								"families"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Portfolio",
+			"item": [
+				{
+					"name": "Add fund to Portfolio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-RapidAPI-key",
+								"value": "{{rapidapi_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MzQ4MTAxMjEsImV4cCI6MTczNDgxMzcyMX0.EE0vb93Aw06tRclOIzlOb5tjdAsQDuLDxDpr-2-uGSs",
+								"type": "text"
+							},
+							{
+								"key": "x-rapidapi-host",
+								"value": "latest-mutual-fund-nav.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 10,\r\n  \"schemeId\": \"02-DP\",\r\n  \"schemeName\": \"Baroda BNP Paribas Mutual Fund\",\r\n  \"investedAmount\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funds/portfolio/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funds",
+								"portfolio",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current NAV",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-key",
+								"value": "{{rapidapi_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MzQ4MDg3MjgsImV4cCI6MTczNDgxMjMyOH0.9YQy8wGLe3CnOAjZC12VzFJwpFxXQF6_6cXgkHPEPTs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funds/nav/148629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funds",
+								"nav",
+								"148629"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user portfolio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-key",
+								"value": "{{rapidapi_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MzQ4MTAxMjEsImV4cCI6MTczNDgxMzcyMX0.EE0vb93Aw06tRclOIzlOb5tjdAsQDuLDxDpr-2-uGSs",
+								"type": "text"
+							},
+							{
+								"key": "x-rapidapi-host",
+								"value": "latest-mutual-fund-nav.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funds/portfolio/user/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funds",
+								"portfolio",
+								"user",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

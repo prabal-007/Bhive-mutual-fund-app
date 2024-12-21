@@ -1,33 +1,29 @@
 const cron = require('node-cron');
-const { fetchFundData } = require('./rapidAPI');
-const { PrismaClient } = require("@prisma/client");
+const prismaClient = require('@prisma/client').PrismaClient;
+const { fetchMutualFundData } = require('../services/rapidapi');
+const prisma = new prismaClient();
 
-const prisma = new PrismaClient();
-
-const updateFundNav = async () => {
+cron.schedule('0 * * * *', async () => {
+    console.log('Updating portfolio NAV hourly...');
     try {
-        const portfolios = await prisma.portfolio.findMany({
-            include: { funds: true },
-        });
-        for (const item of portfolios) {
-            for (const fund of item.funds) {
-                const fundData = await fetchFundData(fund.fundFamily);
-                const updatedFund = fundData.find((f) => f.name === fund.name);
+        const portfolios = await prisma.Portfolio.findMany();
 
-                if (updatedFund) {
-                    await prisma.fund.update({
-                        where: {id: fund.id},
-                        data: {nav: updatedFund.nav},
-                    });
-                }
+        for (const portfolio of portfolios) {
+            const navData = await fetchMutualFundData(portfolio.schemeId);
+            const currentNAV = navData.length ? navData[0].currentNAV : null;
+
+            if (currentNAV) {
+                await prisma.Portfolio.update({
+                    where: { id: portfolio.id },
+                    data: { currentNAV },
+                });
             }
         }
-        console.log("funds updated.")
-    } catch (e) {
-        console.error("error in updating fund", e);
+
+        console.log('Portfolio NAVs updated successfully.');
+    } catch (error) {
+        console.error('Error updating portfolio NAVs:', error.message);
     }
-}
+});
 
-// cron.schedule('0 * * * *', updateFundNav);
-
-module.exports = cron.schedule('0 * * * *', updateFundNav);
+module.exports = cron;
