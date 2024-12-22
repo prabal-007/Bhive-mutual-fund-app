@@ -1,14 +1,18 @@
+version: '3.8'
+
 services:
   backend:
     build:
       context: ./backend
     ports:
-      - "5000:5000"
+      - "3000:3000"
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mutual_fund"
       RAPIDAPI_KEY: "your-rapidapi-key"
     depends_on:
       - db
+    networks:
+      - app-network
 
   db:
     image: postgres:15
@@ -20,6 +24,25 @@ services:
       - db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    environment:
+      REACT_APP_API_URL: "http://backend:3000"
+    working_dir: /app
 
 volumes:
   db_data:
+
+networks:
+  app-network:
+    driver: bridge
