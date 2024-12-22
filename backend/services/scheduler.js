@@ -1,6 +1,6 @@
 const cron = require('node-cron');
 const prismaClient = require('@prisma/client').PrismaClient;
-const { fetchMutualFundData } = require('../services/rapidapi');
+const { fetchMutualFundData } = require('../services/rapidAPI');
 const prisma = new prismaClient();
 
 cron.schedule('0 * * * *', async () => {
