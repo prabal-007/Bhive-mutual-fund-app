@@ -6,7 +6,7 @@ This is a full-stack mutual fund management app built with React (frontend), Nod
 Git Repository Link - [Bhive-mutual-fund-app](https://github.com/prabal-007/Bhive-mutual-fund-app)
 
 # Prerequisites:
-- **Node.js** (v14.x or later)
+- **Node.js**
 - **PostgreSQL** (or use Docker for database setup)
 - **Docker** (for containerized setup)
 - **Prisma CLI** (install with `npm install -g prisma`)
@@ -100,7 +100,6 @@ The frontend is also configured to run in Docker. When running the full setup wi
 Access the app at http://localhost:3000.
 
 ### Folder Structure
-
 Bhive-mutual-fund-app/
 ├── backend/               # Backend Node.js app
 ├── frontend/              # Frontend React app
