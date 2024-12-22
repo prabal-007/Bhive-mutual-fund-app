@@ -8,7 +8,7 @@ const { fetchMutualFundData } = require('../services/rapidapi');
 require('../services/scheduler');
 
 const router = express.Router();
-const RAPIDAPI_HOST =process.env.RAPIDAPI_HOST
+const RAPIDAPI_HOST = process.env.RAPIDAPI_HOST;
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 
 router.get('/schemes', async (req, res) => {
