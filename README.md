@@ -97,7 +97,7 @@ npm run dev
 ## Docker Setup for Frontend:
 The frontend is also configured to run in Docker. When running the full setup with Docker Compose, the frontend will automatically be built and served from the container.
 
-Access the app at http://localhost:3000.
+Access the app at http://localhost:3001.
 
 ### Folder Structure
 Bhive-mutual-fund-app/

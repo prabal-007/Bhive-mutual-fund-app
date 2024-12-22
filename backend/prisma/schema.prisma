@@ -26,15 +26,5 @@ model Portfolio {
   schemeName String
   userId Int
   investedAmount Float
-  funds Fund[]
   user User @relation(fields: [userId], references: [id])
-}
-
-model Fund {
-  id       Int @id @default(autoincrement())
-  name String
-  fundFamily String
-  nav Float
-  portfolioId Int
-  portfolio Portfolio @relation(fields: [portfolioId], references: [id])
 }

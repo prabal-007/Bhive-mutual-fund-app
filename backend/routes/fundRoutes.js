@@ -3,7 +3,7 @@ const axios = require('axios');
 const prisma = require('@prisma/client');
 const { PrismaClient } = prisma;
 const prismaClient = new PrismaClient();
-const { fetchMutualFundData } = require('../services/rapidapi');
+const { fetchMutualFundData } = require('../services/rapidAPI');
 
 require('../services/scheduler');
 
